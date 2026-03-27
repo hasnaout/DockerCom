@@ -1,7 +1,7 @@
 services:
   backend:
     build: ./backend
-    image: hasnaout/flask-api:latest
+    image: votreusername/flask-api:latest
     ports:
       - "5000:5000"
     environment:
@@ -11,11 +11,11 @@ services:
       DB_NAME: flaskdb
     depends_on:
       - db
-    
+
   frontend:
     build: ./frontend
-    image: hasnaout/frontend-app:latest
-    ports: 
+    image: votreusername/frontend-app:latest
+    ports:
       - "3000:80"
     depends_on:
       - backend
@@ -24,7 +24,7 @@ services:
     image: mysql:8
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: flask
+      MYSQL_DATABASE: flaskdb
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
