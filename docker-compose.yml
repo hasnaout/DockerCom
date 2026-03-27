@@ -4,12 +4,12 @@ services:
     image: hasnaout/flask-api:latest
     ports:
       - "5000:5000"
-    environement:
+    environment:
       DB_HOST: db
       DB_USER: root
       DB_PASSWORD: root
       DB_NAME: flaskdb
-    deponds_on:
+    depends_on:
       - db
     
   frontend:
@@ -17,12 +17,12 @@ services:
     image: hasnaout/frontend-app:latest
     ports: 
       - "3000:80"
-    deponds_on:
+    depends_on:
       -backend
 
   db:
     image: mysql:8
-    envirenemnt:
+    environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: flask
     volumes:
